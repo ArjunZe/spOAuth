@@ -1,5 +1,6 @@
 # spOAuth
 App to get Refresh Token from Microsoft SharePoint.
+
 Steps:
 1.	Register your app in SharePoint by Navigate to https://your_site_name.com/_layouts/15/appregnew.aspx and the redirect URL must be https://localhost:8443/spOAuth/callback.jsp
   a.	Save Client ID & Client Secret
