@@ -32,10 +32,32 @@ function getRealm()
         }
     };
 }
+function copy() {
+    var range, selection, worked;
+    var element=document.getElementById("resp");
+    if (document.body.createTextRange) {
+        range = document.body.createTextRange();
+        range.moveToElementText(element);
+        range.select();
+    } else if (window.getSelection) {
+        selection = window.getSelection();
+        range = document.createRange();
+        range.selectNodeContents(element);
+        selection.removeAllRanges();
+        selection.addRange(range);
+    }
+
+    try {
+        document.execCommand('copy');
+        alert('text copied');
+    } catch (err) {
+        alert('unable to copy text');
+    }
+}
 function Authorize() {
     var iscope = document.getElementById("scope").value;
     var iclientId = document.getElementById("clientid").value;
     var AutorzeURL = "https://" + document.getElementById("site").value + ".sharepoint.com/_layouts/oauthauthorize.aspx?client_id=" + iclientId + "&scope=" + iscope + "&response_type=code&redirect_uri=" + encodeURIComponent('https://localhost:8443/spOAuth/callback.jsp');
-    alert("Opening "+AutorzeURL);
-    window.open(AutorzeURL,'Auth');
+    alert("Opening " + AutorzeURL);
+    window.open(AutorzeURL, 'Auth');
 }
