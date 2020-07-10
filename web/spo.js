@@ -9,7 +9,6 @@ function getRealm()
 {
     //alert('cc');
     var baseurl = "https://cors-anywhere.herokuapp.com/https://" + document.getElementById("user-form:your_site").value + ".sharepoint.com/_vti_bin/client.svc";
-    // var baseurl = "https://na2.ai.dm-us.informaticacloud.com/active-bpel/public/rt/dIjE3p8O2kuj9gfDoNfsuE/Ze-GetPodInfoForOrgs?inOrgIds=0GkxwvoUUbfhYQMFDIS1O2";
     var xmlhttp = new XMLHttpRequest();
     //xmlhttp.setRequestHeader("User-Agent","PostmanRuntime/7.24.1");
     xmlhttp.open("GET", baseurl, true);
@@ -32,10 +31,32 @@ function getRealm()
         }
     };
 }
+function copy() {
+    var range, selection, worked;
+    var element=document.getElementById("resp");
+    if (document.body.createTextRange) {
+        range = document.body.createTextRange();
+        range.moveToElementText(element);
+        range.select();
+    } else if (window.getSelection) {
+        selection = window.getSelection();
+        range = document.createRange();
+        range.selectNodeContents(element);
+        selection.removeAllRanges();
+        selection.addRange(range);
+    }
+
+    try {
+        document.execCommand('copy');
+        alert('text copied');
+    } catch (err) {
+        alert('unable to copy text');
+    }
+}
 function Authorize() {
     var iscope = document.getElementById("scope").value;
     var iclientId = document.getElementById("clientid").value;
-    var AutorzeURL = "https://" + document.getElementById("site").value + ".sharepoint.com/_layouts/oauthauthorize.aspx?client_id=" + iclientId + "&scope=" + iscope + "&response_type=code&redirect_uri=" + encodeURIComponent('https://localhost:8443/spOAuth/callback.jsp');
-    alert("Opening "+AutorzeURL);
-    window.open(AutorzeURL,'Auth');
+    var AutorzeURL = "https://" + document.getElementById("site").value + ".sharepoint.com/"+document.getElementById("sub-site").value+"/_layouts/oauthauthorize.aspx?client_id=" + iclientId + "&scope=" + iscope + "&response_type=code&redirect_uri=" + encodeURIComponent('https://localhost:8443/spOAuth/callback.jsp');
+    alert("Opening " + AutorzeURL);
+    window.open(AutorzeURL, 'Auth');
 }

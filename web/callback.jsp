@@ -12,6 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Callback Receive & Generate Refresh Token</title>
         <meta charset="utf-8"></meta>
+        <script src="spo.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -53,7 +54,7 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label"></label>
                         <div class="col-md-4"><br/>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button name="btn" type="submit" class="btn btn-warning" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUBMIT <span class="glyphicon glyphicon-send"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button name="btn" type="submit" class="btn btn-warning" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Generate Tokens <span class="glyphicon glyphicon-send"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
                         </div>
                     </div>
                 </fieldset>
@@ -71,8 +72,8 @@
                     String csec = request.getParameter("clientsecret");
                     String acode = request.getParameter("code");
                     String validate = mc.check(s, cid, csec, acode);
-                    out.print(validate);
-
+                    out.print("<p id=\"resp\">"+validate+"</p>");
+                    out.print("<button onclick=\"copy()\">Copy</button>");
                 }
             %>
         </footer>
