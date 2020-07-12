@@ -6,8 +6,7 @@ Steps:
   a.	Save Client ID & Client Secret
 2.	Download zip from https://raw.githubusercontent.com/ArjunZe/spOAuth/master/SpOAuth.zip
 3.	Extract the zip.
-4.	Go to bin folder  and start Catalina. 
-  a.	Command Catalina.bat start
+4.	Double Click Start.bat .
 5.	Open https://localhost:8443/spOAuth/ in browser.
 6.	Fill in Client Id and Site Name, Scope & Click Authorize.
 a.	Refer scopes -https://spshell.blogspot.com/2015/03/sharepoint-online-o365-oauth.html
