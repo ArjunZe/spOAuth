@@ -9,7 +9,7 @@ Steps:
 4.	Double Click Start.bat .
 5.	Open https://localhost:8443/spOAuth/ in browser.
 6.	Fill in Client Id and Site Name, Scope & Click Authorize.
-a.	Refer scopes -https://spshell.blogspot.com/2015/03/sharepoint-online-o365-oauth.html
+	Refer scopes -https://spshell.blogspot.com/2015/03/sharepoint-online-o365-oauth.html
 7.	It will launch to SharePoint, then  login and click trust it.
 8.	Once Redirected back to https://localhost:8443/spOAuth/callback.jsp , fill in Client Id, Client Secret, Site Name and Click Generate.
 9.	Once Generated, Click Copy.
